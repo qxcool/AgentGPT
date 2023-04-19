@@ -89,7 +89,7 @@ const ChatWindow = ({
                 message={{
                   type: "system",
                   value:
-                    "> 通过添加 名称 / 目标 并点击deploy来创建代理！",
+                    "> 通过添加 名称 / 目标 并点击deploy来创建代理!",
                 }}
               />
             </Expand>
@@ -98,12 +98,12 @@ const ChatWindow = ({
                 message={{
                   type: "system",
                   value:
-                    "📢 您可以在设置选项卡中提供自己的OpenAI API密钥，以增加限制！",
+                    "📢 您可以在设置选项卡中提供自己的OpenAI API密钥,以增加限制!",
                 }}
               />
               {showDonation && (
                 <Expand delay={0.7} type="spring">
-                  <DonationMessage />
+
                 </Expand>
               )}
             </Expand>

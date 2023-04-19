@@ -201,7 +201,7 @@ const Home: NextPage = () => {
                   disabled={agent != null}
                   onChange={(e) => setName(e.target.value)}
                   onKeyDown={(e) => handleKeyPress(e)}
-                  placeholder="AgentGPT"
+                  placeholder="AgentGPT《角色信息》"
                 />
               </Expand>
               <Expand delay={1.3}>
@@ -216,7 +216,7 @@ const Home: NextPage = () => {
                   value={goalInput}
                   onChange={(e) => setGoalInput(e.target.value)}
                   onKeyDown={(e) => handleKeyPress(e)}
-                  placeholder="使世界变得更美好。"
+                  placeholder="项目目标《让世界更美好》"
                 />
               </Expand>
             </div>
