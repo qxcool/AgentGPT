@@ -104,8 +104,7 @@ const Drawer = ({
 
             {userAgents.length === 0 && (
               <div>
-                Click the above button to restart. In the future, this will be a
-                list of your deployed agents!
+                单击上面的按钮新建绘画。已部署代理的列表！
               </div>
             )}
           </ul>
@@ -136,30 +135,7 @@ const Drawer = ({
             onClick={showHelp}
           />
           <DrawerItem icon={<FaCog />} text="Settings" onClick={showSettings} />
-          <hr className="my-2 border-white/20" />
-          <div className="flex flex-row items-center">
-            <DrawerItem
-              icon={<FaDiscord size={30} />}
-              text="Discord"
-              href="https://discord.gg/jdSBAnmdnY"
-              target="_blank"
-              small
-            />
-            <DrawerItem
-              icon={<FaTwitter size={30} />}
-              text="Twitter"
-              href="https://twitter.com/asimdotshrestha/status/1644883727707959296"
-              target="_blank"
-              small
-            />
-            <DrawerItem
-              icon={<FaGithub size={30} />}
-              text="GitHub"
-              href="https://github.com/reworkd/AgentGPT"
-              target="_blank"
-              small
-            />
-          </div>
+
         </div>
       </div>
     </>

@@ -12,11 +12,11 @@ export const actionParser = StructuredOutputParser.fromZodSchema(
     // Enum type currently not supported
     action: z
       .string()
-      .describe(`The action to take, either 'Question' or '${respondAction}'`),
-    arg: z.string().describe("The argument to the action"),
+      .describe(`要采取的行动，“问题”或'${respondAction}'`),
+    arg: z.string().describe("行动的论据"),
   })
 );
 
 export const tasksParser = StructuredOutputParser.fromZodSchema(
-  z.array(z.string()).describe("A list of tasks to complete")
+  z.array(z.string()).describe("要完成的任务列表")
 );

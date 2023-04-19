@@ -16,19 +16,19 @@ export const formatErrors = (
 
 if (!_clientEnv.success) {
   console.error(
-    "❌ Invalid environment variables:\n",
+    "❌ 无效的环境变量:\n",
     ...formatErrors(_clientEnv.error.format()),
   );
-  throw new Error("Invalid environment variables");
+  throw new Error("无效的环境变量");
 }
 
 for (let key of Object.keys(_clientEnv.data)) {
   if (!key.startsWith("NEXT_PUBLIC_")) {
     console.warn(
-      `❌ Invalid public environment variable name: ${key}. It must begin with 'NEXT_PUBLIC_'`,
+      `❌ 无效的公共环境变量名称: ${key}. It must begin with 'NEXT_PUBLIC_'`,
     );
 
-    throw new Error("Invalid public environment variable name");
+    throw new Error("无效的公共环境变量名称");
   }
 }
 

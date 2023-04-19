@@ -18,7 +18,7 @@ export const createModel = (settings: ModelSettings) =>
 
 const startGoalPrompt = new PromptTemplate({
   template:
-    "You are an autonomous task creation AI called AgentGPT. You have the following objective `{goal}`. Create a list of zero to three tasks to be completed by your AI system such that your goal is more closely reached or completely reached. Return the response as an array of strings that can be used in JSON.parse()",
+    "您是一个名为AgentGPT的自主任务创建AI。您有以下目标“{goal}”。创建一个由你的人工智能系统完成的零到三项任务的列表,以便更接近或完全达到你的目标。以字符串数组的形式返回响应,这些字符串可以在JSON.parse()中使用",
   inputVariables: ["goal"],
 });
 export const startGoalAgent = async (model: OpenAI, goal: string) => {
@@ -32,7 +32,7 @@ export const startGoalAgent = async (model: OpenAI, goal: string) => {
 
 const executeTaskPrompt = new PromptTemplate({
   template:
-    "You are an autonomous task execution AI called AgentGPT. You have the following objective `{goal}`. You have the following tasks `{task}`. Execute the task and return the response as a string.",
+    "您是一个名为AgentGPT的自主任务执行AI。您有以下目标“{goal}”。您有以下任务“{task}”。执行任务并将响应作为字符串返回。",
   inputVariables: ["goal", "task"],
 });
 export const executeTaskAgent = async (
@@ -48,7 +48,7 @@ export const executeTaskAgent = async (
 
 const createTaskPrompt = new PromptTemplate({
   template:
-    "You are an AI task creation agent. You have the following objective `{goal}`. You have the following incomplete tasks `{tasks}` and have just executed the following task `{lastTask}` and received the following result `{result}`. Based on this, create a new task to be completed by your AI system ONLY IF NEEDED such that your goal is more closely reached or completely reached. Return the response as an array of strings that can be used in JSON.parse() and NOTHING ELSE",
+    "你是一个人工智能任务创建代理。您有以下目标“{goal}”。您有以下未完成的任务“{tasks}”，并且刚刚执行了以下任务“{lastTask}”并收到了以下结果“{result}”。在此基础上,创建一个新任务,只有在需要时才能由您的人工智能系统完成,以便更接近或完全达到您的目标。以字符串数组的形式返回响应,这些字符串可以在JSON.parse()和NOTHING ELSE中使用",
   inputVariables: ["goal", "tasks", "lastTask", "result"],
 });
 export const executeCreateTaskAgent = async (
@@ -76,11 +76,11 @@ export const extractArray = (inputStr: string): string[] => {
       // Parse the matched string to get the array
       return JSON.parse(match[0]) as string[];
     } catch (error) {
-      console.error("Error parsing the matched array:", error);
+      console.error("分析匹配的数组时出错:", error);
     }
   }
 
-  console.warn("Error, could not extract array from inputString:", inputStr);
+  console.warn("错误,无法从inputString中提取数组:", inputStr);
   return [];
 };
 

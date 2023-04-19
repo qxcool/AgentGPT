@@ -114,14 +114,14 @@ class AutonomousAgent {
       }
 
       if (newTasks.length == 0) {
-        this.sendActionMessage("Task marked as complete!");
+        this.sendActionMessage("任务标记为完成!");
       }
     } catch (e) {
       console.log(e);
       this.sendErrorMessage(
-        `ERROR adding additional task(s). It might have been against our model's policies to run them. Continuing.`
+        `添加其他任务时出错。运行它们可能违反了我们模型的政策。持续的.`
       );
-      this.sendActionMessage("Task marked as complete.");
+      this.sendActionMessage("任务标记为完成.");
     }
 
     await this.loop();
@@ -219,22 +219,22 @@ class AutonomousAgent {
       type: "system",
       value:
         this.modelSettings.customApiKey !== ""
-          ? `This agent has been running for too long (50 Loops). To save your wallet this agent is shutting down. In the future, the number of iterations will be configurable.`
-          : "We're sorry, because this is a demo, we cannot have our agents running for too long. Note, if you desire longer runs, please provide your own API key in Settings. Shutting down.",
+          ? `此代理程序运行时间过长（50个循环）。为了保存您的钱包，此代理程序正在关闭。在未来，迭代次数将是可配置的.`
+          : "很抱歉，因为这是一个演示，我们不能让我们的代理运行太长时间。请注意，如果您希望运行更长时间，请在“设置”中提供您自己的API密钥。正在关闭.",
     });
   }
 
   sendManualShutdownMessage() {
     this.sendMessage({
       type: "system",
-      value: `The agent has been manually shutdown.`,
+      value: `代理已手动关闭.`,
     });
   }
 
   sendCompletedMessage() {
     this.sendMessage({
       type: "system",
-      value: "All tasks completed. Shutting down.",
+      value: "已完成所有任务。正在关闭。",
     });
   }
 
@@ -253,7 +253,7 @@ class AutonomousAgent {
   sendExecutionMessage(task: string, execution: string) {
     this.sendMessage({
       type: "action",
-      info: `Executing "${task}"`,
+      info: `执行 "${task}"`,
       value: execution,
     });
   }
@@ -274,7 +274,7 @@ const testConnection = async (modelSettings: ModelSettings) => {
     "https://api.openai.com/v1/chat/completions",
     {
       model: modelSettings.customModelName,
-      messages: [{ role: "user", content: "Say this is a test" }],
+      messages: [{ role: "user", content: "假设这是一次测试" }],
       max_tokens: 7,
       temperature: 0,
     },
@@ -289,17 +289,17 @@ const testConnection = async (modelSettings: ModelSettings) => {
 
 const getMessageFromError = (e: unknown) => {
   let message =
-    "ERROR accessing OpenAI APIs. Please check your API key or try again later";
+    "ERROR访问OpenAI API。请检查您的API密钥或稍后重试";
   if (axios.isAxiosError(e)) {
     const axiosError = e as AxiosError;
     if (axiosError.response?.status === 429) {
-      message = `ERROR using your OpenAI API key. You've exceeded your current quota, please check your plan and billing details.`;
+      message = `使用OpenAI API密钥时出错。您已超过当前配额，请检查您的计划和账单详细信息.`;
     }
     if (axiosError.response?.status === 404) {
-      message = `ERROR your API key does not have GPT-4 access. You must first join OpenAI's wait-list. (This is different from ChatGPT Plus)`;
+      message = `错误：您的API密钥没有GPT-4访问权限。您必须首先加入OpenAI的等待名单。（这与ChatGPT Plus不同）`;
     }
   } else {
-    message = `ERROR retrieving initial tasks array. Retry, make your goal more clear, or revise your goal such that it is within our model's policies to run. Shutting Down.`;
+    message = `检索初始任务数组时出错。重试，使您的目标更加明确，或者修改您的目标，使其在我们模型的策略范围内运行。正在关闭.`;
   }
   return message;
 };

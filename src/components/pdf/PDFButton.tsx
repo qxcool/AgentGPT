@@ -40,7 +40,7 @@ const getContent = (messages: Message[]): string => {
         return `Goal: ${message.value}`;
       }
       if (message.type == "task") {
-        return `Adding Task: ${message.value}`;
+        return `正在添加任务: ${message.value}`;
       }
       return message.value;
     })

@@ -11,9 +11,9 @@ const Home: NextPage = () => {
   return (
     <DefaultLayout className="flex flex-col items-center justify-center gap-4">
       <h1 className="text-center text-4xl font-bold text-[#C0C0C0]">
-        Coming Soon!{" "}
+      马上就来！{" "}
       </h1>
-      <Button onClick={() => void router.push("/")}>Back</Button>
+      <Button onClick={() => void router.push("/")}>返回</Button>
     </DefaultLayout>
   );
 };

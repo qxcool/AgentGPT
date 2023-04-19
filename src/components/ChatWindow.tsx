@@ -89,7 +89,7 @@ const ChatWindow = ({
                 message={{
                   type: "system",
                   value:
-                    "> Create an agent by adding a name / goal, and hitting deploy!",
+                    "> 通过添加 名称 / 目标 并点击deploy来创建代理！",
                 }}
               />
             </Expand>
@@ -98,7 +98,7 @@ const ChatWindow = ({
                 message={{
                   type: "system",
                   value:
-                    "📢 You can provide your own OpenAI API key in the settings tab for increased limits!",
+                    "📢 您可以在设置选项卡中提供自己的OpenAI API密钥，以增加限制！",
                 }}
               />
               {showDonation && (
@@ -263,25 +263,7 @@ const ChatMessage = ({ message }: { message: Message }) => {
 const DonationMessage = () => {
   const router = useRouter();
 
-  return (
-    <div className="mx-2 my-1 flex flex-col gap-2 rounded-lg border-[2px] border-white/10 bg-blue-500/20 p-1 text-center font-mono hover:border-[#1E88E5]/40 sm:mx-4 sm:p-3 sm:text-base md:flex-row">
-      <div className="max-w-none flex-grow">
-        💝️ Help support the advancement of AgentGPT. 💝
-        <br />
-        Please consider sponsoring the project on GitHub.
-      </div>
-      <div className="flex items-center justify-center">
-        <Button
-          className="sm:text m-0 rounded-full text-sm "
-          onClick={() =>
-            void router.push("https://github.com/sponsors/reworkd-admin")
-          }
-        >
-          Support now 🚀
-        </Button>
-      </div>
-    </div>
-  );
+  return ;
 };
 
 const getMessageIcon = (message: Message) => {
@@ -300,13 +282,13 @@ const getMessageIcon = (message: Message) => {
 const getMessagePrefix = (message: Message) => {
   switch (message.type) {
     case "goal":
-      return "Embarking on a new goal:";
+      return "新目标:";
     case "task":
-      return "Added task:";
+      return "已添加任务:";
     case "thinking":
-      return "Thinking...";
+      return "思考...";
     case "action":
-      return message.info ? message.info : "Executing:";
+      return message.info ? message.info : "执行:";
   }
 };
 

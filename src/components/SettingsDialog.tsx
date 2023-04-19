@@ -56,7 +56,7 @@ export default function SettingsDialog({
       close();
     } else {
       alert(
-        "key is invalid, please ensure that you have set up billing in your OpenAI account"
+        "密钥无效,请确保您已在OpenAI帐户中设置了计费"
       );
     }
   };
@@ -85,7 +85,7 @@ export default function SettingsDialog({
         type="range"
         toolTipProperties={{
           message:
-            "Higher values will make the output more random, while lower values make the output more focused and deterministic.",
+            "较高的值将使输出更随机，而较低的值使输出更加集中和确定性。",
           disabled: false,
         }}
         attributes={{
@@ -108,7 +108,7 @@ export default function SettingsDialog({
         type="range"
         toolTipProperties={{
           message:
-            "Controls the maximum number of loops that the agent will run (higher value will make more API calls).",
+            "控制代理将运行的最大循环数(更高的值将产生更多API调用)。",
           disabled: false,
         }}
         attributes={{
@@ -128,9 +128,7 @@ export default function SettingsDialog({
       footerButton={<Button onClick={handleSave}>Save</Button>}
     >
       <p>
-        Here you can add your OpenAI API key. This will require you to pay for
-        your own OpenAI usage but give you greater access to AgentGPT! You can
-        additionally select any model OpenAI offers.
+      在这里,您可以添加OpenAI API密钥。
       </p>
       <br />
       <p
@@ -143,15 +141,14 @@ export default function SettingsDialog({
         <FaExclamationCircle className="inline-block" />
         &nbsp;
         <b>
-          To use the GPT-4 model, you need to also provide the API key for
-          GPT-4. You can request for it&nbsp;
+          要使用GPT-4模型,您可以申请GPT-4.&nbsp;
           <a
             href="https://openai.com/waitlist/gpt-4-api"
             className="text-blue-500"
           >
             here
           </a>
-          . (ChatGPT Plus subscription will not work)
+          . (非ChatGPT Plus订阅用户,此功能将不起作用)
         </b>
       </p>
       <br />
@@ -188,15 +185,14 @@ export default function SettingsDialog({
         ></Accordion>
         <br />
         <strong className="mt-10">
-          NOTE: To get a key, sign up for an OpenAI account and visit the
-          following{" "}
+        注意:要获得密钥,请注册OpenAI帐户并访问 {" "}
           <a
             href="https://platform.openai.com/account/api-keys"
             className="text-blue-500"
           >
-            link.
+
           </a>{" "}
-          This key is only used in the current browser session
+          此密钥仅在当前浏览器会话中使用
         </strong>
       </div>
     </Dialog>
